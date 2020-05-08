@@ -1,0 +1,47 @@
+# Deploy instances
+- hosts: localhost
+  vars_files:
+    - host_vars/nectar.yaml
+  gather_facts: true
+
+  roles:
+    - role: openstack-common
+    - role: openstack-volume
+    - role: openstack-security-group
+    - role: openstack-instance
+
+# Add proxy in /etc/environment for instances in group comp90024
+- hosts: COMP90024
+  tasks:
+    - name: Add proxy in /etc/environment
+      become: yes
+      blockinfile:
+        path: /etc/environment
+        block: |
+          HTTP_PROXY=http://wwwproxy.unimelb.edu.au:8000/
+          HTTPS_PROXY=http://wwwproxy.unimelb.edu.au:8000/
+          http_proxy=http://wwwproxy.unimelb.edu.au:8000/
+          https_proxy=http://wwwproxy.unimelb.edu.au:8000/
+          no_proxy=localhost,127.0.0.1,localaddress,172.16.0.0/12,.melbourne.rc.nectar.org.au,.storage.unimelb.edu.au,.cloud.unimelb.edu.au
+
+    - name: Reboot a machine
+      become: yes
+      reboot:
+        reboot_timeout: 3000
+  
+# Add docker
+- hosts: COMP90024
+  gather_facts: true
+
+  roles:
+    - role: docker
+
+# Add couch DB
+- hosts: COMP90024
+  vars_files:
+    - host_vars/couchdb.yaml
+  gather_facts: true
+
+  roles:
+    - role: db-common
+    - role: db-couchdb

@@ -1,0 +1,6 @@
+---
+db_dir: couchdb
+
+# Couch DB
+database_user:
+database_password:

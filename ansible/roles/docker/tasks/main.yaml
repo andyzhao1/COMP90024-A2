@@ -1,0 +1,73 @@
+---
+- name: Uninstall old versions of docker
+  tags: 'docker'
+  become: yes
+  apt:
+    name: ['docker', 'docker-engine', 'docker.io']
+    state: absent
+
+- name: Install dependencies
+  tags: 'docker'
+  become: yes
+  apt:
+    name: ['apt-transport-https', 'build-essential', 'ca-certificates', 'curl', 'git', 'python3-dev', 'python3-pip', 'python3-setuptools', 'software-properties-common', 'unzip', 'vim']
+    state: latest
+    install_recommends: no
+    update_cache: yes
+
+- name: Add Docker apt repository key
+  tags: 'docker'
+  become: yes
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker apt repository and update apt cache
+  tags: 'docker'
+  become: yes
+  apt_repository:
+    repo: "deb https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+    mode: '644'
+    update_cache: yes
+    state: present
+
+- name: Install docker
+  tags: 'docker'
+  become: yes
+  apt:
+    name: ['docker-ce']
+    state: latest
+    install_recommends: no
+    update_cache: yes
+
+- name: Install docker-compose
+  tags: 'docker'
+  become: yes
+  pip:
+    name: ['docker-compose']
+    state: latest
+
+# Set HTTP/HTTPS proxy for docker daemon
+# Create directory /etc/systemd/system/docker.service.d/ if it does not exist
+- name: Create directory
+  become: yes
+  file:
+    path: /etc/systemd/system/docker.service.d/
+    state: directory
+    mode: '0755'
+
+# Copy the http-proxy.conf to /etc/systemd/system/docker.service.d/
+- name: Copy file
+  become: yes
+  copy:
+    src: http-proxy.conf
+    dest: /etc/systemd/system/docker.service.d/
+    mode: '0644'
+
+# Restart Docker service, also issue daemon-reload to pick up config changes
+- name: Restart Docker service
+  become: yes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
