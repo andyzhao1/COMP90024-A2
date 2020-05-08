@@ -1,0 +1,4 @@
+---
+volume:
+  - device: /dev/vdb
+    mountpoint: /var/lib/docker

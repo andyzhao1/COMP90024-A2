@@ -11,6 +11,14 @@ volumes:
     vol_size: 10
   - vol_name: vol-2-2
     vol_size: 10
+  - vol_name: vol-3-1
+    vol_size: 10
+  - vol_name: vol-3-2
+    vol_size: 10
+  - vol_name: vol-4-1
+    vol_size: 10
+  - vol_name: vol-4-2
+    vol_size: 10
 
 # Security group
 security_groups:
@@ -54,6 +62,10 @@ instances:
     volumes: ['vol-1-1', 'vol-1-2']
   - name: instance-2
     volumes: ['vol-2-1', 'vol-2-2']
+  - name: instance-3
+    volumes: ['vol-3-1', 'vol-3-2']
+  - name: instance-4
+    volumes: ['vol-4-1', 'vol-4-2']
 
 instance_image: 45225edb-66d8-4fd0-bf41-132a31a18166
 instance_key_name: group55-key

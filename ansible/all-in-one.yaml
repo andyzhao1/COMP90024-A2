@@ -34,8 +34,9 @@
   gather_facts: true
 
   roles:
+    - role: docker-volume
     - role: docker
-
+    
 # Add couch DB
 - hosts: COMP90024
   vars_files:
@@ -44,4 +45,5 @@
 
   roles:
     - role: db-common
+    - role: db-volume
     - role: db-couchdb

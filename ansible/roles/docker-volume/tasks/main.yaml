@@ -1,0 +1,49 @@
+---
+- name: Install dependencies
+  tags: 'volume'
+  become: yes
+  apt:
+    name: ['xfsprogs']
+    state: latest
+    install_recommends: no
+    update_cache: yes
+
+- name: Make file system
+  tags: 'volume'
+  become: yes
+  filesystem:
+    fstype: xfs
+    dev: "{{ item.device }}"
+  with_items:
+    - "{{ volume }}"
+
+- name: Checking folders
+  tags: 'volume'
+  become: yes
+  stat:
+    path: "{{ item.mountpoint }}"
+  register: directory_stats
+  with_items:
+    - "{{ volume }}"
+
+- name: Create directory
+  tags: 'volume'
+  become: yes
+  file:
+    path: "{{ item.item.mountpoint }}"
+    recurse: yes
+    state: directory
+  when: item.stat.exists == false
+  with_items:
+    - "{{ directory_stats.results }}"
+
+- name: Mount device
+  tags: 'volume'
+  become: yes
+  mount:
+    path: "{{ item.mountpoint }}"
+    src: "{{ item.device }}"
+    fstype: xfs
+    state: mounted
+  with_items:
+    - "{{ volume }}"
