@@ -6,9 +6,10 @@ services:
     restart: always
     ports:
       - "5984:5984"
-      - "5986:5986"
       - "4369:4369"
       - "9100-9200:9100-9200"
+    volumes:
+      - ./data:/opt/couchdb/data
     environment:
       - COUCHDB_USER={{ database_user }}
       - COUCHDB_PASSWORD={{ database_password }}

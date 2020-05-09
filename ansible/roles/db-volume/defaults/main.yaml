@@ -1,4 +1,0 @@
----
-volume:
-  - device: /dev/vdc
-    mountpoint: /data

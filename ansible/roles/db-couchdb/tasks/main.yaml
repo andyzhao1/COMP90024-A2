@@ -27,3 +27,14 @@
     state: present
     remove_orphans: yes
     recreate: always
+
+- name: Change file permission
+  tags: 'couchdb'
+  become: yes
+  file:
+    path: "{{ item.mountpoint }}"
+    recurse: yes
+    mode: '0777'
+  with_items:
+    - "{{ volume }}"
+  

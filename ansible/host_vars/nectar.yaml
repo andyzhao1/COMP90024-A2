@@ -49,8 +49,6 @@ sg_remote_group: '{{ sg_name }}'
 port_range:
   - port_range_min: 5984
     port_range_max: 5984
-  - port_range_min: 5986
-    port_range_max: 5986
   - port_range_min: 4369
     port_range_max: 4369
   - port_range_min: 9100
