@@ -12,8 +12,10 @@ class myListener(StreamListener):
             # print(data)
             db = get_db(server, "Twitter")  # get db
             data_json = json.loads(data)  # Decode the JSON from Twitter
-
-            db.update(data_json)  # insert the data into the couchdb into a collection
+            _id = data_json["id_str"]
+            
+            db.update([_id, data_json])  # insert the data into the couchdb into a collection(_id as id of couchDB docs)
+			
         except Exception as e:
             print(e)
 
