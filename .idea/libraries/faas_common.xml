@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="faas-common">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Desktop/CampusSystem/faas-service/faas-common" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Desktop/CampusSystem/faas-service/faas-common/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
