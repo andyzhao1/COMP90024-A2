@@ -8,3 +8,7 @@ db_dir: couchdb
 # Couch DB
 database_user:
 database_password:
+
+# Couch DB cluster
+nodename: "{{ ansible_eth0.ipv4.address }}"
+cookie: 9167703b76d4290a452cbecaff0007ce

@@ -13,4 +13,6 @@ services:
     environment:
       - COUCHDB_USER={{ database_user }}
       - COUCHDB_PASSWORD={{ database_password }}
+      - COUCHDB_SECRET={{ cookie }}
+      - NODENAME={{ nodename }}
     container_name: couchDB
