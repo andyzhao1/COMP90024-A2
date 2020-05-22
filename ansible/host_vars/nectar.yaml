@@ -63,13 +63,13 @@ port_range:
 
 # Instance
 instances:
-  - name: instance-1
+  - name: instance1
     volumes: ['vol-1-1', 'vol-1-2']
-  - name: instance-2
+  - name: instance2
     volumes: ['vol-2-1', 'vol-2-2']
-  - name: instance-3
+  - name: instance3
     volumes: ['vol-3-1', 'vol-3-2']
-  - name: instance-4
+  - name: instance4
     volumes: ['vol-4-1', 'vol-4-2']
 
 instance_image: 45225edb-66d8-4fd0-bf41-132a31a18166

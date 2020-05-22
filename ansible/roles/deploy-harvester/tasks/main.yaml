@@ -1,40 +1,29 @@
 ---
-- name: Create couch DB directory
-  tags: 'couchdb'
+- name: Create tweet harvester directory
+  tags: 'harvester'
   become: yes
   file:
-    path: "{{ db_dir }}"
+    path: "{{ harvester_dir }}"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     recurse: yes
     state: directory
 
 - name: Configure compose
-  tags: 'couchdb'
+  tags: 'harvester'
   become: yes
   template:
     src: docker-compose.yaml.j2
-    dest: "{{ db_dir }}/docker-compose.yaml"
+    dest: "{{ harvester_dir }}/docker-compose.yaml"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
 - name: Run docker compose
-  tags: 'couchdb'
+  tags: 'harvester'
   become: yes
   docker_compose:
-    project_src: "{{ db_dir }}"
+    project_src: "{{ harvester_dir }}"
     pull: yes
     state: present
     remove_orphans: yes
     recreate: always
-
-- name: Change file permission
-  tags: 'couchdb'
-  become: yes
-  file:
-    path: "{{ item.mountpoint }}"
-    recurse: yes
-    mode: '0777'
-  with_items:
-    - "{{ volume }}"
-  

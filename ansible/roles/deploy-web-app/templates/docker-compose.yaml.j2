@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  webapp:
+    image: emostudio/webapp
+    restart: always
+    ports:
+      - "8080:8080"
+    container_name: webapp

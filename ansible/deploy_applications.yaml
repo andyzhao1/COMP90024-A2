@@ -1,0 +1,22 @@
+---
+- hosts: instance1
+  vars_files:
+    - host_vars/application.yaml
+  gather_facts: true
+  roles:
+    - role: deploy-web-app
+
+- hosts: instance2
+  vars_files:
+    - host_vars/application.yaml
+  gather_facts: true
+  roles:
+    - role: deploy-couchdb-api
+    - role: deploy-machine-learning
+
+- hosts: instance3
+  vars_files:
+    - host_vars/application.yaml
+  gather_facts: true
+  roles:
+    - role: deploy-harvester

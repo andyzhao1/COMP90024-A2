@@ -6,8 +6,8 @@ volume:
 db_dir: couchdb
 
 # Couch DB
-database_user:
-database_password:
+database_user: COMP90024
+database_password: COMP90024
 
 # Couch DB cluster
 nodename: "{{ ansible_eth0.ipv4.address }}"
