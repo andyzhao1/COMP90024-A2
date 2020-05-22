@@ -1,20 +1,21 @@
 # Common vars
 availability_zone: melbourne-qh2-uom
+project_working_directory: /home/xmkz/ccc/COMP90024-A2/ansible
 
 # Volume
 volumes:
   - vol_name: vol-1-1
-    vol_size: 10
+    vol_size: 20
   - vol_name: vol-1-2
-    vol_size: 10
+    vol_size: 40
   - vol_name: vol-2-1
-    vol_size: 10
+    vol_size: 20
   - vol_name: vol-2-2
-    vol_size: 10
+    vol_size: 40
   - vol_name: vol-3-1
-    vol_size: 10
+    vol_size: 20
   - vol_name: vol-3-2
-    vol_size: 10
+    vol_size: 40
   - vol_name: vol-4-1
     vol_size: 10
   - vol_name: vol-4-2
@@ -39,6 +40,12 @@ security_groups:
     protocol: tcp
     port_range_min: 5984
     port_range_max: 5984
+    remote_ip_prefix: 0.0.0.0/0
+  - name: nginx
+    description: "Security group for nginx access"
+    protocol: tcp
+    port_range_min: 10000
+    port_range_max: 10000
     remote_ip_prefix: 0.0.0.0/0
 
 # Security group for couch db
