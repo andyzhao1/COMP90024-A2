@@ -69,7 +69,7 @@ def isPoiWithinPoly(poi,poly):
 
 
 server = server_connection()
-mel_geojson = read_json_file("JSON/mel_geojson.json")
+mel_geojson = read_json_file("JSON/test.json")
 
 # ServiceImpl
 def queryView(db_name,view_name):
@@ -89,15 +89,83 @@ def queryView(db_name,view_name):
     json_results["isSuccess"] = True
     return json_results
 
+import nltk
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+sid = SentimentIntensityAnalyzer()
 def queryViewCount(area, db_name,view_name):
     db = get_db(server, db_name)
     results=db.view(view_name)
     total_sum = db.__len__()
     return {"area":area,"total_sum":total_sum,"count":results.rows[0].value}
 
+s1GenerateResult = []
+s2GenerateResult = []
+s3GenerateResult = []
+
+def scenarioQuery(scenario):
+    print(scenario)
+    if(scenario == "s1"):
+        results = {"isSuccess":True,"data":s1GenerateResult}
+    elif(scenario == "s2"):
+        results = {"isSuccess":True,"data":s2GenerateResult}
+    elif(scenario == "s3"):
+        results = {"isSuccess":True,"data":s3GenerateResult}
+    else:
+        results = {"isSuccess":False,"error_message":"not found"}
+    return results
+
+def s1Generate(area, db_name,view_name):
+    db = get_db(server, db_name)
+    texts = db.view(view_name,reduce = False)
+    positive = 0
+    negative = 0
+    equal = 0
+    for each in texts:
+        result = sid.polarity_scores(each.value)
+        if(result["neg"]>result["pos"]):
+            negative += 1
+        elif(result["neg"]<result["pos"]):
+            positive += 1
+        else:
+            equal += 1
+    s1GenerateResult.append({"area":area,"positive":positive,"negative":negative,"equal":equal})
+
+def s2Generate(area, db_name,view_name):
+    db = get_db(server, db_name)
+    texts = db.view(view_name,reduce = False)
+    positive = 0
+    negative = 0
+    equal = 0
+    for each in texts:
+        result = sid.polarity_scores(each.value)
+        if(result["neg"]>result["pos"]):
+            negative += 1
+        elif(result["neg"]<result["pos"]):
+            positive += 1
+        else:
+            equal += 1
+    s2GenerateResult.append({"area":area,"positive":positive,"negative":negative,"equal":equal})
+
+def s3Generate(area, db_name,view_name):
+    db = get_db(server, db_name)
+    texts = db.view(view_name,reduce = False)
+    positive = 0
+    negative = 0
+    equal = 0
+    for each in texts:
+        result = sid.polarity_scores(each.value)
+        if(result["neg"]>result["pos"]):
+            negative += 1
+        elif(result["neg"]<result["pos"]):
+            positive += 1
+        else:
+            equal += 1
+    s2GenerateResult.append({"area":area,"positive":positive,"negative":negative,"equal":equal})  
+
 def queryGeojson(geo_name):
     json_results = {}
     if(geo_name.lower() == "melbourne"):
-        json_results["rows"] = mel_geojson["features"]
-    json_results["isSuccess"] = True
+        json_results = mel_geojson
+    print(mel_geojson)
     return json_results

@@ -6,6 +6,7 @@ import couchdbService
 from flask_httpauth import HTTPBasicAuth
 import uuid
 import threading
+import random
 
 app = Flask(__name__, static_url_path = "")
 
@@ -42,6 +43,68 @@ class StoppableThread(threading.Thread):
 
 # API
 '''
+### Name: test
+### API: '/test/count'
+### Description: ''
+'''
+@app.route('/test/count/query', methods = ['POST'])
+def testCountQuery():
+    if not request.json or not 'db_views' in request.json:
+        abort(400)
+    db_views = request.json['db_views']
+    data = []
+    for each in db_views:
+        area = each['area']
+        #db_name = each['db_name']
+        #view_name = each['view_name']
+        data.append({"area":area,"total_sum":random.randint(1000000,1500000),"count":random.randint(96000,240000)})
+    result = {"data":data,"isSuccess":True}
+    return jsonify( result ), 200
+
+
+'''
+### Name: scenario for tweets count
+### API: '/count/query'
+### Description: ''
+'''
+@app.route('/count/query', methods = ['POST'])
+def countQuery():
+    if not request.json or not 'db_views' in request.json:
+        abort(400)
+    db_views = request.json['db_views']
+    data = []
+    for each in db_views:
+        area = each['area']
+        db_name = each['db_name']
+        view_name = each['view_name']
+        data.append(couchdbService.queryViewCount(area,db_name,view_name))
+    result = {"data":data,"isSuccess":True}
+    return jsonify( result ), 200
+
+
+'''
+### Name: scenario for tweets count
+### API: '/count/query'
+### Description: ''
+'''
+@app.route('/scenario/query', methods = ['POST'])
+def scenarioQuery():
+    if not request.json or not 'scenario' in request.json:
+        abort(400)
+    scenario = request.json['scenario']
+    result = couchdbService.scenarioQuery(scenario)
+    return jsonify( result ), 200
+#################################################################
+'''
+### Name: helloWorld
+### API: '/test/helloWorld'
+### Description: ''
+'''
+@app.route('/test/helloWorld', methods = ['GET'])
+def helloWorld():
+    return jsonify( {"isSuccess":True} ), 200
+
+'''
 ### Name: queryView
 ### API: '/todo/api/v1.0/queryView'
 ### Description: ''
@@ -53,28 +116,9 @@ def queryView():
     db_name = request.json['db_name']
     view_name = request.json['view_name']
     result = couchdbService.queryView(db_name,view_name)
-    return jsonify( result ), 201
+    return jsonify( result ), 200
+'''
 
-'''
-### Name: queryViewCount
-### API: '/todo/api/v1.0/queryViewCount'
-### Description: ''
-'''
-@app.route('/todo/api/v1.0/queryViewCount', methods = ['POST'])
-def queryViewCount():
-    if not request.json or not 'db_views' in request.json:
-        abort(400)
-    db_views = request.json['db_views']
-    data = []
-    for each in db_views:
-        area = each['area']
-        db_name = each['db_name']
-        view_name = each['view_name']
-        data.append(couchdbService.queryViewCount(area,db_name,view_name))
-    result = {"data":data,"isSuccess":True}
-    return jsonify( result ), 201
-
-'''
 ### Name: queryGeojson
 ### API: '/todo/api/v1.0/queryGeojson'
 ### Description: ''
@@ -85,8 +129,78 @@ def queryGeo():
         abort(400)
     geo_name = request.json['geo_name']
     result = couchdbService.queryGeojson(geo_name)
-    return jsonify( result ), 201
+    return jsonify( result ), 200
+
+'''
+
+### Name: queryGeojson1
+### API: '/todo/api/v1.0/queryGeojson1'
+### Description: ''
+'''
+@app.route('/todo/api/v1.0/queryGeojson1', methods = ['GET'])
+def queryGeo1():
+    result = {"isSuccess":True,"data":[{"city_name":"Yarra Valley","postive":5720,"negative":8847}]}
+    return jsonify( result ), 200
 
 if __name__ == '__main__':
+    s1DataSet = [
+		{
+			"area": "Melbourne",
+			"db_name":"melbourne_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Brisbane",
+			"db_name":"brisbane_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Sydney",
+			"db_name":"sydney_radius",
+			"view_name":"twitter/coordinates"
+		}
+	]
+
+    s2DataSet = [
+		{
+			"area": "Melbourne",
+			"db_name":"melbourne_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Brisbane",
+			"db_name":"brisbane_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Sydney",
+			"db_name":"sydney_radius",
+			"view_name":"twitter/coordinates"
+		}
+	]
+
+    s3DataSet = [
+		{
+			"area": "Melbourne",
+			"db_name":"melbourne_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Brisbane",
+			"db_name":"brisbane_radius",
+			"view_name":"twitter/coordinates"
+		},
+		{
+			"area": "Sydney",
+			"db_name":"sydney_radius",
+			"view_name":"twitter/coordinates"
+		}
+	]
+    for each in s1DataSet:
+        area = each["area"]
+        db_name = each["db_name"]
+        view_name = each["view_name"]
+        couchdbService.s1Generate(area,db_name,view_name)
+    
     app.run(port=5000,debug=True,threaded=True,host='0.0.0.0')
 

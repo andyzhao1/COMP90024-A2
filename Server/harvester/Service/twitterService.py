@@ -17,8 +17,6 @@ class StdOutListenerForAU(StreamListener):
         self.db_name = db_name
         self.key_words = key_words
         self.auth = auth
-        self.user_id_list = []
-        self.user_id_set =set()
 
     def on_data(self,data):
         try:
@@ -26,24 +24,7 @@ class StdOutListenerForAU(StreamListener):
             json_data=json.loads(data)
             json_data["_id"] = json_data['id_str']
             json_data["key_words"] = self.key_words
-
-            if(json_data["user"]["id"] not in self.user_id_set):
-                self.user_id_list.append(json_data["user"]["id"])
-                self.user_id_set.add(json_data["user"]["id"])
-
-            print(len(self.user_id_list))
-
             doc = create_doc(db, json_data)
-
-            if(len(self.user_id_list)>=20):
-                print("Search User")
-                take_user_id_list = self.user_id_list 
-                self.user_id_list.clear()
-                listener = StdOutListenerForUser(server, self.db_name)
-                auth = self.auth
-                stream = Stream(auth, listener)
-                stream.filter(follow=take_user_id_list, languages = ["en"], is_async=True)
-
             print("Search By Location:"+str(doc["_id"]))
             return True
 
@@ -56,34 +37,6 @@ class StdOutListenerForAU(StreamListener):
         print(status)
         if status == 420:
             return False
-
-
-class StdOutListenerForUser(StreamListener):
-
-    def __init__(self, server, db_name):
-        self.server = server
-        self.db_name = db_name
-
-    def on_data(self,data):
-        try:
-            db = get_db(self.server, self.db_name)
-            json_data=json.loads(data)
-            json_data["_id"] = json_data['id_str']
-            doc = create_doc(db, json_data)
-            print("Search By User ID:"+str(doc["_id"]))
-            return True
-
-        except BaseException as e:
-            print("Error on_data %s" % str(e))
-
-        return True
-
-    def on_error(self,status):
-        print(status)
-        if status == 420:
-            return False
-
-
 
 class TwitterStreamer():
 

@@ -4,6 +4,8 @@ import couchdb
 import time
 import sys
 import threading
+sys.path.append("../") 
+import application
 
 #####################################################################################
 
@@ -113,6 +115,7 @@ class StoppableThreadForCollectTweet(threading.Thread):
         since = self._args[3]
         until = self._args[4]
         db_name = self._args[5]
+        thread_id = self._args[6]
 
         for idx, province in enumerate(provinces):
             # initial start id
@@ -163,6 +166,10 @@ class StoppableThreadForCollectTweet(threading.Thread):
 
                     else:
                         print("Tweets about the requested query does not exist\n")
+                        for i in range(len(application.collecting_thread_list)):
+                            if (application.collecting_thread_list[i].thread_id == thread_id):
+                                application.collecting_thread_list.pop(i)
+                                application.collecting_thread_information.pop(i)
                         break
 
                 except Exception as e:
