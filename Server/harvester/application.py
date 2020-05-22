@@ -37,7 +37,7 @@ def startCollectTweet():
     access_token_secret = request.json['TokenSecret']
 
     return_info = twitterService.startStreamTweet(databaseName,key_words,consumer_key,consumer_secret,access_token,access_token_secret)
-    return jsonify( return_info ), 201
+    return jsonify( return_info ), 200
 
 '''
 ### Name: stopCollectTweet
@@ -50,7 +50,7 @@ def stopCollectTweet():
         abort(400)
     stream_id = request.json['stream_id']
     return_info = twitterService.stopStreamTweet(stream_id)
-    return jsonify(return_info), 201
+    return jsonify(return_info), 200
 
 
 '''
@@ -61,7 +61,7 @@ def stopCollectTweet():
 @app.route('/stream/queryStreamList', methods = ['GET'])
 def queryStreamList():
     return_info = twitterService.queryStreamList()
-    return jsonify(return_info), 201
+    return jsonify(return_info), 200
 
 
 
@@ -95,7 +95,6 @@ def startCollectByRadius():
     since = ""
     until = ""
     db_name = None
-
     if(request.json['db_name'] !=None):
         db_name = request.json['db_name']
 
@@ -114,10 +113,9 @@ def startCollectByRadius():
     if(request.json['query'] !=None):
         query = request.json['query']
 
-
     #thread = threading.Thread(args=(query, provinces, geocodes, since, until))
-    thread = collectRadius.StoppableThreadForCollectTweet(args=(query, provinces, geocodes, since, until,db_name))
     thread_id = str(uuid.uuid1())
+    thread = collectRadius.StoppableThreadForCollectTweet(args=(query, provinces, geocodes, since, until,db_name,thread_id))
     thread_entity = {
         "thread_id":thread_id,
         "thread":thread,
@@ -146,9 +144,9 @@ def startCollectByRadius():
     try:
         thread.start()
     except Exception as e:
-        return jsonify( {"errorMessage":e, 'isSuccess': False } ), 201
+        return jsonify( {"errorMessage":e, 'isSuccess': False } ), 200
 
-    return jsonify( {"threadEntity":thread_information, 'isSuccess': True } ), 201
+    return jsonify( {"threadEntity":thread_information, 'isSuccess': True } ), 200
 
 '''
 ### Name: stopCollectByRadius
@@ -157,27 +155,27 @@ def startCollectByRadius():
 '''
 @app.route('/search/stopCollectByRadius', methods = ['POST'])
 def stopCollectByRadius():
-    thread_id = request.json['thread_id']
-    thread_entity = None
-    thread_information = None
-    for i in range(len(collecting_thread_list)):
-        if(collecting_thread_list[i]["thread_id"] == thread_id):
-            thread_entity = collecting_thread_list.pop(i)
-            thread_information = collecting_thread_information.pop(i)
-            break
+    thread_ids = request.json['ids']
+    for thread_id in thread_ids:
+        thread_entity = None
+        thread_information = None
+        for i in range(len(collecting_thread_list)):
+            if(collecting_thread_list[i]["thread_id"] == thread_id):
+                thread_entity = collecting_thread_list.pop(i)
+                thread_information = collecting_thread_information.pop(i)
+                break
 
-    if(thread_entity == None):
-        return jsonify( {"errorMessage":"Thread not found", 'isSuccess': False } ), 201
-    else:
-        thread = thread_entity["thread"]
-        try:
-            thread.stop()
-            thread.join()
-            return jsonify( {"threadEntity":thread_information, 'isSuccess': False } ), 201
-        except Exception as e:
-            print(str(e))
-            return jsonify( {"threadEntity":thread_information, 'isSuccess': True } ), 201
-
+        if(thread_entity == None):
+            return jsonify( {"errorMessage":"Thread not found", 'isSuccess': False } ), 200
+        else:
+            thread = thread_entity["thread"]
+            try:
+                thread.stop()
+                thread.join()
+                return jsonify( {"threadEntity":thread_information, 'isSuccess': False } ), 200
+            except Exception as e:
+                print(str(e))
+                return jsonify( {"threadEntity":thread_information, 'isSuccess': True } ), 200
 '''
 ### Name: collectByRadiusList
 ### API: '/search/queryCollectingThreadList'
@@ -185,7 +183,7 @@ def stopCollectByRadius():
 '''
 @app.route('/search/queryCollectingThreadList', methods = ['GET'])
 def collectByRadiusList():
-    return jsonify( {"threadList":collecting_thread_information, 'isSuccess': True } ), 201
+    return jsonify( {"threadList":collecting_thread_information, 'isSuccess': True } ), 200
 
 
 if __name__ == '__main__':
