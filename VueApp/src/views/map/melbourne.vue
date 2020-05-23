@@ -5,6 +5,8 @@
   </div>
 </template>
 <script>
+  import popWindowComponent from '../../components/popWindow'
+  import Vue from 'vue'
   export default {
     mounted(){
       this.initMap()
@@ -103,9 +105,63 @@
         map.data.loadGeoJson('mel_geojson.json')
 
         // mouse click event: show grid info
+        let infowindow = new google.maps.InfoWindow()
         map.data.addListener('click', (event) => {
           let cityName = event.feature.getProperty('SA2_NAME16')
-          alert(cityName)
+
+          let PopWindow = Vue.extend(popWindowComponent)
+
+          let chart = {
+            color: ['#3398DB'],
+              tooltip: {
+            trigger: 'axis',
+              axisPointer: {
+              type: 'shadow'
+            }
+          },
+            grid: {
+              left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+              {
+                type: 'category',
+                data: ["A","B","C"],
+                axisTick: {
+                  alignWithLabel: true
+                }
+              }
+            ],
+              yAxis: [
+            {
+              type: 'value'
+            }
+          ],
+            series: [
+            {
+              name: '直接访问',
+              type: 'bar',
+              barWidth: '60%',
+              data: [48,78,29]
+            }
+          ]
+          }
+
+          // send data to the view
+          let object = new PopWindow({
+            propsData: {
+              cityName,
+              chart
+            }
+          })
+
+          object.$mount()
+
+          infowindow.setContent(object.$el)
+          infowindow.setPosition(event.latLng)
+          infowindow.open(map)
         })
 
         // mouse over event: highlight color
@@ -116,6 +172,7 @@
         // mouse our event: reset color/info-window
         map.data.addListener('mouseout', (event) => {
           map.data.revertStyle()
+          infowindow.close()
         })
       }
     }

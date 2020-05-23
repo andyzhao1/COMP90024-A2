@@ -38,11 +38,10 @@
 <script>
   import variable from '@/common/scss/variable.scss'
   import { mapGetters } from 'vuex'
-  import $store from '../../../store/state'
   export default {
     name: 'sideBar',
     created () {
-      this.role = $store.role
+      this.role = ""
     },
     data () {
       return {

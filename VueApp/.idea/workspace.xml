@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6789fa35-e081-4e7a-a081-33c66c3b7a56" name="Default Changelist" comment="" />
+    <list default="true" id="6789fa35-e081-4e7a-a081-33c66c3b7a56" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/faas_common.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/faas_common.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/faas_service_dto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/faas_service_dto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/java.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/java.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/java1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/java1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/java2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/java2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/java3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/java3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/java4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/java4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/server/Service/couchdbService.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/server/Service/couchdbService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/server/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/server/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/js/config/host.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/js/config/host.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/excel/Blob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/excel/Export2Excel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/components/SideBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/SideBar/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/mutaions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/mutation-types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/harvester/search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/harvester/search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/project/task/components/assets-page-sample.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/project/task/components/assets-page.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/project/task/components/popWindow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/project/task/components/task-nav.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/project/task/components/task-page.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +50,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/map/melbourne.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="714">
+              <caret line="146" column="29" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#135#194#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/popWindow.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -29,81 +72,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/scenario/scenario.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="52" column="20" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="20" />
+            <state relative-caret-position="171">
+              <caret line="9" column="86" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="86" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#718#763#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/harvester/search.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
-              <folding>
-                <element signature="n#style#0;n#el-table#0;n#div#0;n#assets-page#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#2050#2095#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/router/module/harvester.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/collectTwitterAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/scenarioAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/js/config/host.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,14 +126,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/project/unit/unit.vue" />
-        <option value="$PROJECT_DIR$/src/views/project/structure/class/unitList.vue" />
-        <option value="$PROJECT_DIR$/src/views/project/task/components/assets-page-allocateTeachers.vue" />
         <option value="$PROJECT_DIR$/src/router/module/structure.js" />
         <option value="$PROJECT_DIR$/src/views/project/structure/class/teacherList.vue" />
         <option value="$PROJECT_DIR$/src/views/project/task/components/assets-page-teacherList.vue" />
@@ -192,30 +161,33 @@
         <option value="$PROJECT_DIR$/src/router/module/map.js" />
         <option value="$PROJECT_DIR$/src/router/module/scenario.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/vue.config.js" />
         <option value="$PROJECT_DIR$/src/router/module/json.js" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/router/index.js" />
         <option value="$PROJECT_DIR$/src/views/project/task/components/assets-page.vue" />
         <option value="$PROJECT_DIR$/src/views/project/task/components/popWindow" />
-        <option value="$PROJECT_DIR$/src/views/map/melbourne.vue" />
         <option value="$PROJECT_DIR$/src/api/testAPI.js" />
         <option value="$PROJECT_DIR$/src/common/js/config/host.js" />
         <option value="$PROJECT_DIR$/src/api/scenarioAPI.js" />
         <option value="$PROJECT_DIR$/src/api/request.js" />
-        <option value="$PROJECT_DIR$/src/views/scenario/scenario.vue" />
         <option value="$PROJECT_DIR$/src/common/js/mixin.js" />
         <option value="$PROJECT_DIR$/src/api/collectTwitterAPI.js" />
         <option value="$PROJECT_DIR$/src/views/harvester/harvester.vue" />
         <option value="$PROJECT_DIR$/src/router/module/harvester.js" />
         <option value="$PROJECT_DIR$/src/layout/components/SideBar/index.vue" />
         <option value="$PROJECT_DIR$/src/views/harvester/search.vue" />
+        <option value="$PROJECT_DIR$/vue.config.js" />
+        <option value="$PROJECT_DIR$/src/components/popWindow" />
+        <option value="$PROJECT_DIR$/src/components/pop.vue" />
+        <option value="$PROJECT_DIR$/src/views/map/melbourne.vue" />
+        <option value="$PROJECT_DIR$/src/views/scenario/scenario.vue" />
+        <option value="$PROJECT_DIR$/src/components/popWindow.vue" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="101" />
-    <option name="y" value="208" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="260" />
+    <option name="y" value="201" />
     <option name="width" value="1674" />
     <option name="height" value="1165" />
   </component>
@@ -225,109 +197,49 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
+              <item name="VueApp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
+              <item name="VueApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
+              <item name="VueApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="SideBar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
+              <item name="VueApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web app" type="462c0819:PsiDirectoryNode" />
+              <item name="VueApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="harvester" type="462c0819:PsiDirectoryNode" />
+              <item name="scenario" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/github/COMP90024-2019S1-Team7-TrackerHub-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -336,19 +248,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\views\scenario" />
-      <recent name="C:\Users\Administrator\Desktop\Dev\web app\public" />
-      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\assets" />
-      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\router\module" />
-      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\views\map" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\Dev\campus-system-site\src\assets\Json" />
       <recent name="C:\Users\Administrator\Desktop\Dev\campus-system-site\src\views\map" />
       <recent name="C:\Users\Administrator\Desktop\Dev\campus-system-site\src\views" />
       <recent name="C:\Users\Administrator\Desktop\Dev\campus-system-site\src\views\project\library\books" />
       <recent name="C:\Users\Administrator\Desktop\Dev\campus-system-site\src\views\project\structure\class" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\COMP90024-A2\VueApp\src\components" />
+      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\views\scenario" />
+      <recent name="C:\Users\Administrator\Desktop\Dev\web app\public" />
+      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\assets" />
+      <recent name="C:\Users\Administrator\Desktop\Dev\web app\src\router\module" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -403,6 +315,8 @@
       <workItem from="1590060371635" duration="7900000" />
       <workItem from="1590080736420" duration="9707000" />
       <workItem from="1590090489439" duration="23806000" />
+      <workItem from="1590206769894" duration="281000" />
+      <workItem from="1590207608127" duration="1790000" />
     </task>
     <task id="LOCAL-00001" summary="修复在新增教师时，一直提示“请选择教师所属学院”的bug。">
       <created>1575456727511</created>
@@ -534,12 +448,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154094000" />
+    <option name="totallyTimeSpent" value="156165000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="229" width="1674" height="1165" extended-state="0" />
+    <frame x="260" y="201" width="1674" height="1165" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27506113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27506113" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -554,7 +469,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32822084" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3296146" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.21047527" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.21047527" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -587,8 +502,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="删除书籍管理" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/project/user/adminUser.vue" />
-    <entry file="file://$PROJECT_DIR$/src/views/project/user/add.vue" />
     <entry file="file://$PROJECT_DIR$/src/router/module/user.js" />
     <entry file="file://$PROJECT_DIR$/src/api/adminAPI.js" />
     <entry file="file://$PROJECT_DIR$/src/components/pagination/pagination.vue">
@@ -597,9 +510,6 @@
           <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layout/components/SideBar/Item.vue">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/plugins/element.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -610,13 +520,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/task-nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/task-nav.vue" />
     <entry file="file://$PROJECT_DIR$/src/layout/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -631,12 +535,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/excel/Blob.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/excel/Export2Excel.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/excel/Blob.js" />
+    <entry file="file://$PROJECT_DIR$/src/excel/Export2Excel.js" />
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7005">
@@ -651,13 +551,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/login/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3211">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/login/index.vue" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -673,28 +567,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/mel_geojson.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/mel_geojson.json" />
     <entry file="file://$PROJECT_DIR$/mel_geojson.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/Json/mel_geojson.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/map/mel_geojson.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/mel_geojson.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/Json/mel_geojson.json" />
+    <entry file="file://$PROJECT_DIR$/src/views/map/mel_geojson.json" />
+    <entry file="file://$PROJECT_DIR$/src/assets/mel_geojson.json" />
     <entry file="file://D:/Work_Tool/WebProxy/nginx/nginx-1.12.2/html/Assignment2/mel_geojson.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -702,13 +581,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/module/json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/module/json.js" />
     <entry file="file://$PROJECT_DIR$/public/mel_geojson.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -732,9 +605,7 @@
     <entry file="file://$PROJECT_DIR$/src/views/scenario/scenario1.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/task-page.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/task-page.vue" />
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -753,13 +624,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/assets-page.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/assets-page.vue" />
     <entry file="file://$PROJECT_DIR$/src/layout/components/NavBar.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
@@ -767,13 +632,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/popWindow">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/project/task/components/popWindow" />
     <entry file="file://$PROJECT_DIR$/src/common/js/config/routes.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -787,27 +646,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/user.js">
+    <entry file="file://$PROJECT_DIR$/src/api/user.js" />
+    <entry file="file://$PROJECT_DIR$/src/common/js/mixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="243">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/map/melbourne.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/harvester/search.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="2280">
+          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#assets-page#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/js/config/host.js">
+    <entry file="file://$PROJECT_DIR$/src/router/module/harvester.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="209">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -820,7 +680,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="399">
           <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -828,17 +688,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/js/mixin.js">
+    <entry file="file://$PROJECT_DIR$/src/layout/components/SideBar/Item.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/popWindow">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/collectTwitterAPI.js">
+    <entry file="file://$PROJECT_DIR$/vue.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        <state relative-caret-position="133">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -849,32 +712,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/module/harvester.js">
+    <entry file="file://$PROJECT_DIR$/src/api/collectTwitterAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="684">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/js/config/host.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/map/melbourne.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="146" column="29" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#135#194#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/scenario/scenario.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="20" />
+        <state relative-caret-position="171">
+          <caret line="9" column="86" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="86" />
           <folding>
             <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#718#763#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/harvester/search.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/popWindow.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#assets-page#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2050#2095#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
         </state>
       </provider>
     </entry>

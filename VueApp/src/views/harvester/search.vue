@@ -70,7 +70,7 @@
 <script>
   import { dataMixin } from '@/common/js/mixin'
   import routes from '@/common/js/config/routes'
-  import AssetsPage from '@/views/project/task/components/assets-page'
+  import AssetsPage from '@/components/assets-page'
   import { queryCollectingThreadList,startCollectByRadius,stopCollectByRadius } from 'api/collectTwitterAPI'
 
   export default {

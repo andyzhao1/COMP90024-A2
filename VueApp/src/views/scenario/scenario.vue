@@ -2,26 +2,38 @@
   <div id="scenario" style="padding: 20px">
     <el-tabs type="border-card">
       <el-tab-pane label="Scenario 1">
-        <h1>{{scenarios[0].title}}</h1>
-        <p>{{scenarios[0].content}}</p>
-        <chart :options="scenarios[0].chart"></chart>
+        <el-container>
+          <el-aside style="width: 50%;background-color: #ffffff">
+            <h2>{{scenarios[0].title}}</h2>
+            <h1>{{scenarios[0].content}}</h1>
+          </el-aside>
+          <el-main width="50%"><chart :options="scenarios[0].chart"></chart></el-main>
+        </el-container>
       </el-tab-pane>
       <el-tab-pane label="Scenario 2">
-        <h1>{{scenarios[1].title}}</h1>
-        <p>{{scenarios[1].content}}</p>
-        <chart :options="scenarios[1].chart"></chart>
+        <el-container>
+          <el-aside style="width: 50%;background-color: #ffffff">
+            <h2>{{scenarios[1].title}}</h2>
+            <h1>{{scenarios[1].content}}</h1>
+          </el-aside>
+          <el-main width="50%"><chart :options="scenarios[1].chart"></chart></el-main>
+        </el-container>
       </el-tab-pane>
       <el-tab-pane label="Scenario 3">
-        <h1>{{scenarios[2].title}}</h1>
-        <p>{{scenarios[2].content}}</p>
-        <chart :options="scenarios[2].chart"></chart>
+        <el-container>
+          <el-aside style="width: 50%;background-color: #ffffff">
+            <h2>{{scenarios[2].title}}</h2>
+            <h1>{{scenarios[2].content}}</h1>
+          </el-aside>
+          <el-main width="50%"><chart :options="scenarios[2].chart"></chart></el-main>
+        </el-container>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
-  import {queryScenario} from 'api/scenarioAPI'
+  import { queryScenario } from 'api/scenarioAPI'
   import 'echarts/lib/chart/line'
   import 'echarts/lib/component/polar'
   export default {
@@ -42,8 +54,8 @@
       }
     },
     methods: {
-      async getPageData() {
-        const res = await queryScenario({scenario: 's1'})
+      async getPageData () {
+        const res = await queryScenario({ scenario: 's1' })
         if (res.isSuccess) {
           this.s1Data = res.data
 
@@ -54,14 +66,14 @@
             {
               chart: scenario1,
               title: 'Scenario 1',
-              content: 'asdasdasdasdasdasdasdasdas'
+              content: 'This is our scenario1, This is our scenario1, This is our scenario1, This is our scenario1'
             }
           )
           this.scenarios.push(
             {
               chart: scenario2,
               title: 'Scenario 2',
-              content: 'asdasdasdasdasdasdasdasdas'
+              content: 'This is our scenario2, This is our scenario2, This is our scenario2, This is our scenario2'
             }
           )
           this.scenarios.push(
@@ -83,13 +95,28 @@
         ]
         let series = []
 
-        let title = [{
-          text: ''
-        }]
+        let title = []
 
         let index = 0
+        let gap = 0
+        let row = 1
+        let column = 0
         this.s1Data.forEach(item => {
-          index += 1
+          column += 1
+          if (column === 3) {
+            row += 1
+          }
+          if (column === 2) {
+            index = 1
+          } else {
+            index = 0
+          }
+          if (column > 2) {
+            column = 1
+          }
+          if (row > 1 && column === 1) {
+            gap += 12
+          }
           item['total'] = item.positive + item.negative
           source[0].push(item.area)
           source[1].push((item.positive * 100 / item.total).toFixed(2))
@@ -97,10 +124,24 @@
           series.push({
             type: 'pie',
             radius: 60,
-            center: [(25*(index)).toString()+'%', '40%'],
+            center: [(20 * (row) + gap).toString() + '%', (20 * (column) + 25 * (index)).toString() + '%'],
+            itemStyle: {
+              emphasis: {
+                label: {
+                  show: true,
+                  formatter: '{d}%',
+                  position: 'center'
+                },
+                labelLine: {
+                  show: false
+                }
+              }
+            },
             label: {
-              show: true,
-              position: 'center'
+              normal: {
+                position: 'inner',
+                show: false
+              }
             },
             encode: {
               itemName: 'Sentiment',
@@ -108,15 +149,19 @@
             }
           })
           title.push({
-            subtext: item.area,
-            left: (23*index).toString()+'%',
-            top: '45%',
+            text: item.area,
+            left: (20 * (row) + gap).toString() + '%',
+            top: (40 * (column) + 5 * (index)).toString() + '%',
             textAlign: 'center'
           })
         })
         let scenario1 = {
-          legend: {},
+          legend: {
+            bottom: 'bottom',
+          },
           tooltip: {
+            trigger: 'item',
+            formatter: '{b}'
           },
           dataset: {
             source: source
@@ -128,7 +173,7 @@
       },
       createS2 () {
         let scenario2 = {
-          color: ['#3398DB'],
+          color: ['#3398db'],
           tooltip: {
             trigger: 'axis',
             axisPointer: {
@@ -157,7 +202,7 @@
           ],
           series: [
             {
-              name: '直接访问',
+              name: '',
               type: 'bar',
               barWidth: '60%',
               data: this.s2Data.y
@@ -197,7 +242,7 @@
           ],
           series: [
             {
-              name: '直接访问',
+              name: '',
               type: 'bar',
               barWidth: '60%',
               data: this.s3Data.y

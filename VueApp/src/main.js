@@ -2,9 +2,6 @@ import Vue from 'vue'
 
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import Blob from './excel/Blob.js'
-import Export2Excel from './excel/Export2Excel.js'
 
 import './plugins/element.js'
 import './common/scss/index.scss'
@@ -12,6 +9,9 @@ import './permission'
 import ECharts from 'vue-echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/pie'
+import 'echarts/lib/component/title'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
 import * as VueGoogleMaps from 'vue2-google-maps'
 
 import ElementUI from 'element-ui'
@@ -33,9 +33,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  store,
-  Blob,
-  Export2Excel,
   render: h => h(App)
 }).$mount('#app')
 Vue.component('v-chart', ECharts)

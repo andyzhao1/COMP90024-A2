@@ -5,7 +5,6 @@ module.exports = {
   outputDir: 'dist',
   lintOnSave: true,
   chainWebpack: (config) => {
-
     config.resolve.symlinks(true)
 
     config.module
