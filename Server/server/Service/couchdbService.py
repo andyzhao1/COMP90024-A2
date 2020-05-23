@@ -69,7 +69,7 @@ def isPoiWithinPoly(poi,poly):
 
 
 server = server_connection()
-mel_geojson = read_json_file("JSON/test.json")
+mel_geojson = read_json_file("JSON/mel_geojson.json")
 
 # ServiceImpl
 def queryView(db_name,view_name):
@@ -99,19 +99,29 @@ def queryViewCount(area, db_name,view_name):
     total_sum = db.__len__()
     return {"area":area,"total_sum":total_sum,"count":results.rows[0].value}
 
-s1GenerateResult = []
-s2GenerateResult = []
-s3GenerateResult = []
-
 def scenarioQuery(scenario):
     print(scenario)
     if(scenario == "s1"):
+        s1GenerateResult = []
+        db = get_db(server,"scenario_analyze")
+        index = 0
+        for each in db:
+            index += 1
+            if(index == 1):
+                result = db[each]['scenario1']
+        for each in result:
+            s1GenerateResult.append({"area":each,"positive":result[each]["positive"],"negative":result[each]["negative"]})
         results = {"isSuccess":True,"data":s1GenerateResult}
     elif(scenario == "s2"):
+        s2GenerateResult = []
+        db_names = ["adelaide","brisbane_radius","melbourne_radius","perth_radius","sydney_radius"]
+        for each in db_names:
+            db = get_db(server,each)
         results = {"isSuccess":True,"data":s2GenerateResult}
     elif(scenario == "s3"):
         results = {"isSuccess":True,"data":s3GenerateResult}
     else:
+        s3GenerateResult = []
         results = {"isSuccess":False,"error_message":"not found"}
     return results
 
