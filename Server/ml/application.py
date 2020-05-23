@@ -49,10 +49,22 @@ class StoppableThread(threading.Thread):
 ### Description: ''
 '''
 @app.route('/scenario/1/analyzeSemantic', methods = ['POST'])
-def analyzeSemantic():
+def s1_analyzeSemantic():
     if request.json:
         abort(400)
-    result = semanticAnalysis.scenario_analyze()
+    result = semanticAnalysis.scenario_1_analyze()
+    return jsonify( result ), 201
+
+'''
+### Name: semantic analyze for scenario 2
+### API: '/scenario/2/analyzeSemantic'
+### Description: ''
+'''
+@app.route('/scenario/2/analyzeSemantic', methods = ['POST'])
+def s2_analyzeSemantic():
+    if request.json:
+        abort(400)
+    result = semanticAnalysis.scenario_2_analyze()
     return jsonify( result ), 201
 
 if __name__ == '__main__':

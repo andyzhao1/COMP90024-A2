@@ -1,25 +1,4 @@
-import tweepy
-from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
-from tweepy import Stream
-from pip._vendor import requests
 import couchdb
-import json
-import uuid
-import twint
-import mmap
-import json
-
-def read_json_file(file_path):
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            map = mmap.mmap(f.fileno(), length=0, access=mmap.ACCESS_READ)
-            data=map.read().decode('utf-8')
-            json_data=json.loads(data)
-            f.close()
-        return json_data
-    except Exception as e:
-        print(e)
 
 def server_connection():
     try:
