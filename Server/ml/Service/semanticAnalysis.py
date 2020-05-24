@@ -22,7 +22,7 @@ def nltk_analyze(texts):
                 sentiment["negative"] += 1
     return sentiment
 
-def scenario_1_analyze():
+def scenario_analyze(scenario) :
     s1DataSet = [
 		{
 			"area": "Melbourne",
@@ -51,34 +51,6 @@ def scenario_1_analyze():
 		}
 	]
 
-    doc = dict()
-    data = dict()
-    for each in s1DataSet:
-        texts = couchdbService.getTextsFromView(each["db_name"],each["view_name"])
-        sentiment = nltk_analyze(texts)
-        data[each["area"]] = sentiment
-
-    doc["_id"] = "scenario1"
-    doc["description"] = "description"
-    doc["created_at"] = time.asctime()
-    doc["data"] = data
-    
-    server = couchdbService.server_connection()
-    couchdbService.create_db(server, "scenario_analyze")
-    db = couchdbService.get_db(server, "scenario_analyze")
-    try :
-        db_doc = db["scenario1"]
-        db_doc["created_at"] = doc["created_at"]
-        db_doc["data"] = doc["data"]
-        result = db.save(db_doc)
-    except :
-        result = couchdbService.create_doc(db, doc)
-
-    return result
-
-
-
-def scenario_2_analyze() :
     s2DataSet = [
 		{
 			"area": "Melbourne",
@@ -106,30 +78,35 @@ def scenario_2_analyze() :
 			"view_name":"twitter/jobrelated"
 		}
     ]
-    
+
     doc = dict()
+    if scenario == "scenario1" :
+        dataSet = s1DataSet
+        doc["description"] = "description"
+    elif scenario == "scenario2" :
+        dataSet = s2DataSet
+        doc["description"] = "description"
+
+    
     data = dict()
-    for each in s2DataSet:
+    for each in dataSet:
         texts = couchdbService.getTextsFromView(each["db_name"],each["view_name"])
         sentiment = nltk_analyze(texts)
-        data[each["area"]] = sentiment
-
-    doc["_id"] = "scenario2"
-    doc["description"] = "description"
+        data[each["area"]] = sentiment  
+    doc["_id"] = scenario 
     doc["created_at"] = time.asctime()
     doc["data"] = data
-
+    
     server = couchdbService.server_connection()
     couchdbService.create_db(server, "scenario_analyze")
     db = couchdbService.get_db(server, "scenario_analyze")
     try :
-        db_doc = db["scenario2"]
+        db_doc = db[scenario]
         db_doc["created_at"] = doc["created_at"]
         db_doc["data"] = doc["data"]
         result = db.save(db_doc)
     except :
         result = couchdbService.create_doc(db, doc)
-
 
     return result
 
@@ -176,5 +153,3 @@ def test() :
     db_doc = db["scenario1"]
     db_doc["created_at"] = "111"
     db_doc["data"] = "222"
-
-scenario_4_analyze()
