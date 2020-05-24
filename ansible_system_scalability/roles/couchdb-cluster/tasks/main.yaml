@@ -1,0 +1,5 @@
+---
+- name: Run python script to set up cluster
+  script: setup_couchdb_cluster.py
+  args:
+    executable: python3

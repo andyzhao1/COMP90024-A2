@@ -1,0 +1,12 @@
+---
+- hosts: swarmMaster
+  roles:
+    - docker-swarm
+
+- hosts: swarmWorker
+  roles:
+    - {role: docker-swarm, swarm_node: 'node', swarm_master: '172.26.132.195'}
+
+- hosts: swarmMaster
+  roles:
+    - deploy-application

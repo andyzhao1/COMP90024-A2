@@ -1,0 +1,9 @@
+---
+- hosts: instance4
+  gather_facts: true
+  roles:
+    - role: couchdb-cluster
+    - {role: docker-swarm, swarm_node: 'node', swarm_master: '172.26.132.195'}
+    
+    
+    

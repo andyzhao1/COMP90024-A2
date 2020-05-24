@@ -1,7 +1,0 @@
-webapp_dir: webApp
-
-couchdb_api_dir: couchdb_api
-
-machine_learning_dir: machine_learning
-
-harvester_dir: harvester

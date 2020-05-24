@@ -52,19 +52,27 @@ def scenario_1_analyze():
 	]
 
     doc = dict()
-    scenario1 = dict()
+    data = dict()
     for each in s1DataSet:
         texts = couchdbService.getTextsFromView(each["db_name"],each["view_name"])
         sentiment = nltk_analyze(texts)
-        scenario1[each["area"]] = sentiment
+        data[each["area"]] = sentiment
 
-    doc["scenario1"] = scenario1
+    doc["_id"] = "scenario1"
+    doc["description"] = "description"
     doc["created_at"] = time.asctime()
-
+    doc["data"] = data
+    
     server = couchdbService.server_connection()
     couchdbService.create_db(server, "scenario_analyze")
     db = couchdbService.get_db(server, "scenario_analyze")
-    result = couchdbService.create_doc(db, doc)
+    try :
+        db_doc = db["scenario1"]
+        db_doc["created_at"] = doc["created_at"]
+        db_doc["data"] = doc["data"]
+        result = db.save(db_doc)
+    except :
+        result = couchdbService.create_doc(db, doc)
 
     return result
 
@@ -72,31 +80,101 @@ def scenario_1_analyze():
 
 def scenario_2_analyze() :
     s2DataSet = [
+		{
+			"area": "Melbourne",
+			"db_name":"melbourne_radius",
+			"view_name":"twitter/jobrelated"
+		},
+		{
+			"area": "Brisbane",
+			"db_name":"brisbane_radius",
+			"view_name":"twitter/jobrelated"
+		},
+		{
+			"area": "Sydney",
+			"db_name":"sydney_radius",
+			"view_name":"twitter/jobrelated"
+		},
         {
 			"area": "Adelaide",
 			"db_name":"adelaide",
 			"view_name":"twitter/jobrelated"
 		},
-		{
-			"area": "Melbourne",
-			"db_name":"melbourne_2018",
+        {
+			"area": "Perth",
+			"db_name":"perth_radius",
 			"view_name":"twitter/jobrelated"
 		}
     ]
     
     doc = dict()
-    scenario2 = dict()
+    data = dict()
     for each in s2DataSet:
         texts = couchdbService.getTextsFromView(each["db_name"],each["view_name"])
         sentiment = nltk_analyze(texts)
-        scenario2[each["area"]] = sentiment
+        data[each["area"]] = sentiment
 
-    doc["scenario2"] = scenario2
+    doc["_id"] = "scenario2"
+    doc["description"] = "description"
     doc["created_at"] = time.asctime()
+    doc["data"] = data
 
     server = couchdbService.server_connection()
     couchdbService.create_db(server, "scenario_analyze")
     db = couchdbService.get_db(server, "scenario_analyze")
-    result = couchdbService.create_doc(db, doc)
+    try :
+        db_doc = db["scenario2"]
+        db_doc["created_at"] = doc["created_at"]
+        db_doc["data"] = doc["data"]
+        result = db.save(db_doc)
+    except :
+        result = couchdbService.create_doc(db, doc)
+
 
     return result
+
+def scenario_4_analyze() :
+    s4DataSet = [
+		{
+			"area": "Melbourne",
+			"db_name":"melbourne_2016",
+			"view_name":"twitter/unemployment"
+		}
+    ]
+    
+    doc = dict()
+    data = dict()
+    for each in s4DataSet:
+        texts = couchdbService.getTextsFromView_4(each["db_name"],each["view_name"])
+    #     sentiment = nltk_analyze(texts)
+    #     data[each["area"]] = sentiment
+
+    # doc["_id"] = "scenario4"
+    # doc["description"] = "description"
+    # doc["created_at"] = time.asctime()
+    # doc["data"] = data
+
+    # server = couchdbService.server_connection()
+    # couchdbService.create_db(server, "scenario_analyze")
+    # db = couchdbService.get_db(server, "scenario_analyze")
+    # try :
+    #     db_doc = db["scenario4"]
+    #     db_doc["created_at"] = doc["created_at"]
+    #     db_doc["data"] = doc["data"]
+    #     result = db.save(db_doc)
+    # except :
+    #     result = couchdbService.create_doc(db, doc)
+
+
+    # return result
+
+def test() :
+    server = couchdbService.server_connection()
+    couchdbService.create_db(server, "scenario_analyze")
+    db = couchdbService.get_db(server, "scenario_analyze")
+
+    db_doc = db["scenario1"]
+    db_doc["created_at"] = "111"
+    db_doc["data"] = "222"
+
+scenario_4_analyze()

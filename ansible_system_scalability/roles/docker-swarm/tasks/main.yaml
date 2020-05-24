@@ -1,0 +1,11 @@
+---
+- name: Get swarm token
+  tags: 'docker_swarm'
+  shell: docker swarm join-token worker | grep token
+  register: swarm_token_cmd
+  delegate_to: "{{ swarm_master }}"
+  when: swarm_master and swarm_node == 'node'
+
+- name: Join swarm
+  shell: "{{ swarm_token_cmd.stdout }}"
+  when: swarm_node == 'node' and swarm_token_cmd.stdout
