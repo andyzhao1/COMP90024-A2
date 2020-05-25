@@ -144,12 +144,3 @@ def scenario_4_analyze() :
 
 
     # return result
-
-def test() :
-    server = couchdbService.server_connection()
-    couchdbService.create_db(server, "scenario_analyze")
-    db = couchdbService.get_db(server, "scenario_analyze")
-
-    db_doc = db["scenario1"]
-    db_doc["created_at"] = "111"
-    db_doc["data"] = "222"

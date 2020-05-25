@@ -39,7 +39,7 @@ def getTextsFromView(db_name,view_name):
     view = db.view(view_name,reduce = False)
     texts = []
     for each in view:
-        texts.append(each.value)
+        texts.append(each.value['text'])
     return texts
 
 def getTextsFromView_4(db_name,view_name):
