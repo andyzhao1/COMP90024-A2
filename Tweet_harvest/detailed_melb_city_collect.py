@@ -17,7 +17,8 @@ import sys
 
 def server_connection():
     try:
-        server = couchdb.Server('http://COMP90024:COMP90024@172.26.129.79:5984/')
+
+        server = couchdb.Server('http://{}:{}@{}:{}/'.format(id, pw, ip, port))
         print("CouchDB is connected: " + str(server) + "\n")
         return server
 
@@ -107,10 +108,15 @@ def get_tweets(query, provinces, geocodes, since, until, server, base_url, searc
 
 #####################################################################################
 
+server_id = sys.argv[1]
+server_pw = sys.argv[2]
+server_ip = sys.argv[3]
+server_port = sys.argv[4]
 
-#change this keys(consumer_key, consumer_secret)
-consumer_key =  "OQvkBBXtNTbzDVDkMZrEGED8t"
-consumer_secret =  "RrO0qupjTd4oGE46g8d4cCFRKJaNTGqoRFJ0tbTmNpWLHXaWyY"
+consumer_key = sys.argv[5]
+consumer_secret = sys.argv[6]
+
+#####################################################################################
 
 
 key_secret = '{}:{}'.format(consumer_key, consumer_secret).encode('ascii')

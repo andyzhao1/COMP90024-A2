@@ -58,7 +58,8 @@ class TwitterStreamer():
 
 def server_connection():
     try:
-        server = couchdb.Server('http://COMP90024:COMP90024@172.26.131.52:5984/')
+        #server = couchdb.Server('http://COMP90024:COMP90024@172.26.131.52:5984/')
+        server = couchdb.Server('http://{}:{}@{}:{}/'.format(id, pw, ip, port))
         print("CouchDB is connected: " + str(server) + "\n")
         return server
 
@@ -94,14 +95,20 @@ def create_doc(db, document):
 
 
 
+server_id = sys.argv[1]
+server_pw = sys.argv[2]
+server_ip = sys.argv[3]
+server_port = sys.argv[4]
+
+#####################################################################################
 if __name__ == "__main__":
     server = server_connection()
 
     #Twitter API Credentials
-    consumer_key = "FdOWknR0kOmopUKitybdP3S4D"
-    consumer_secret = "mWVveTcyGjKAAFhmDEsF6meZYJnhYGPSRyfA9eBnLC4ZALDOlI"
-    access_token =  "1260739078699356160-lrNNtNsTJqXXybZP0hqGDPjWGThEDM"
-    access_token_secret = "ljYtgxDEoc7ZHXVzNAVGjTK3Z1pdEAyfSyUFWknEHOQyW"
+    consumer_key = " " # write consumer key here
+    consumer_secret = " " # write consumer secret here
+    access_token = " " # write access_token here
+    access_token_secret = " " # write access token secret here
 
 
     #Search Area: Australia
