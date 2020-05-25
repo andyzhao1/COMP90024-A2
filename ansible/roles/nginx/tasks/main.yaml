@@ -1,0 +1,15 @@
+---
+- name: Install nginx
+  become: yes
+  shell: "apt-get install nginx -y"
+
+- name: Copy file
+  become: yes
+  copy:
+    src: default
+    dest: /etc/nginx/sites-enabled/default
+    mode: '0644'
+
+- name: Restart nginx
+  become: yes
+  shell: "systemctl restart nginx"

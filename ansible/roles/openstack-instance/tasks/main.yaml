@@ -45,14 +45,14 @@
   when: item.openstack is defined
   loop: '{{ os_instance.results }}'
 
-- name: Create inventory file
-  copy:
-    content: "[all:vars]\nansible_user=ubuntu\nansible_python_interpreter=/usr/bin/python3\nansible_ssh_private_key_file=~/.ssh/group55-key.pem\nansible_ssh_common_args='-o StrictHostKeyChecking=no'\n\n[dbServers:children]\ndbMaster\ndbSlave\n\n[dbMaster:children]\ninstance1\n\n[dbSlave:children]\ninstance2\ninstance3\n\n"
-    dest: "{{project_working_directory}}/inventory/hosts.ini"
+# - name: Create inventory file
+#   copy:
+#     content: "[all:vars]\nansible_user=ubuntu\nansible_python_interpreter=/usr/bin/python3\nansible_ssh_private_key_file=~/.ssh/group55-key.pem\nansible_ssh_common_args='-o StrictHostKeyChecking=no'\n\n[dbServers:children]\ndbMaster\ndbSlave\n\n[dbMaster:children]\ninstance1\n\n[dbSlave:children]\ninstance2\ninstance3\n\n"
+#     dest: "{{project_working_directory}}/inventory/hosts.ini"
 
-- name: set ip addresses to inventory file
-  lineinfile:
-    line: "[{{ item.name }}]\n{{ item.ip }}\n"
-    dest: "{{project_working_directory}}/inventory/hosts.ini"
-  loop: '{{ ip_addresses }}'
+# - name: set ip addresses to inventory file
+#   lineinfile:
+#     line: "[{{ item.name }}]\n{{ item.ip }}\n"
+#     dest: "{{project_working_directory}}/inventory/hosts.ini"
+#   loop: '{{ ip_addresses }}'
 

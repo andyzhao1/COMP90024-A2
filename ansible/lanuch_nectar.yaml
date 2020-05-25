@@ -36,6 +36,7 @@
   roles:
     - role: docker-volume
     - role: docker
+    - role: docker-config
     
 # Add couch DB
 - hosts: COMP90024

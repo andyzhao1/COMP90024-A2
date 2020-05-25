@@ -86,7 +86,7 @@ if __name__ == "__main__" :
     register_couchdb_node(DOCKER_DOMAIN["instance-1"], DOCKER_DOMAIN["instance-4"])
     finish_couchdb_cluster(DOCKER_DOMAIN["instance-1"])
 
-    check_couchdb_membership(DOCKER_DOMAIN["instance-1"])
-    check_couchdb_membership(DOCKER_DOMAIN["instance-2"])
-    check_couchdb_membership(DOCKER_DOMAIN["instance-3"])
+    #check_couchdb_membership(DOCKER_DOMAIN["instance-1"])
+    #check_couchdb_membership(DOCKER_DOMAIN["instance-2"])
+    #check_couchdb_membership(DOCKER_DOMAIN["instance-3"])
     check_couchdb_membership(DOCKER_DOMAIN["instance-4"])

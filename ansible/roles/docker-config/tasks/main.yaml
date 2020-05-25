@@ -1,0 +1,21 @@
+---
+- name: Create directory
+  become: yes
+  file:
+    path: ~/.docker/
+    state: directory
+    mode: '0755'
+
+- name: Copy file
+  become: yes
+  copy:
+    src: config.json
+    dest: ~/.docker/
+    mode: '0644'
+
+- name: Restart Docker service
+  become: yes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker

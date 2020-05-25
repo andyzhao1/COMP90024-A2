@@ -1,6 +1,7 @@
 ---
 - hosts: swarmMaster
   roles:
+    - nginx
     - docker-swarm
 
 - hosts: swarmWorker
@@ -23,7 +24,7 @@
         tags: 'couchdb_api'
         docker_swarm_service:
           name: couchdb_api
-          image: emostudio/couchdb_api
+          image: emostudio/server
           publish:
             - published_port: 5000
               target_port: 5000
