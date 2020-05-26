@@ -1,4 +1,4 @@
-# COMP90024-A2
+# COMP90024-A2-Group55
 
 Team Members:
 * [Sejin Kim - 1025560]
