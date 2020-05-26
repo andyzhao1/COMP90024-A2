@@ -16,7 +16,7 @@ Team Members:
 ### PowerPoint
 
 ## System Structure
-![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/system_structure.png "System Structure")
+![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/system_structure.jpg "System Structure")
 
 ### Frontend (https://youtu.be/_D38VT2fbOc)
 <p>For visualizing analyzed data, we choose Vue which is a components-based development framework to build our web application. Four main packages were used here, the first one is Vue-ElementUI which offers a set of created components and UIs. We have used it to construct the  main structure and style of web pages like Navigation Side Bar and Message Box. The second is Vue-Echart which can be used to draw charts like histogram, pie chart and line chart. The third one is Vue-GoogleMaps, we used it to show data distribution on specific areas. For example, we distribute areas as seven levels based on the num of negative job related tweets and label these areas by seven different colors. The last one is Axios which can be used to communicate with backend servers by HTTP Requests.</p>
