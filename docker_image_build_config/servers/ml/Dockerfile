@@ -4,7 +4,7 @@ RUN pip install nltk
 
 RUN python3 -m nltk.downloader vader_lexicon
 
-ADD * /ml/
+ADD ../../../servers/ml/* /ml/
 
 WORKDIR /ml
 

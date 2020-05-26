@@ -1,7 +1,7 @@
 FROM emostudio/server_environment:1.0
 
-ADD * /harvestor/
+ADD ../../../servers/harvester/* /harvester/
 
-WORKDIR /harvestor
+WORKDIR /harvester
 
 CMD ["python3","application.py"]
