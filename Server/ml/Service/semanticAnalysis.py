@@ -90,7 +90,10 @@ def scenario_analyze(scenario) :
     
     data = dict()
     for each in dataSet:
-        texts = couchdbService.getTextsFromView(each["db_name"],each["view_name"])
+        if scenario == "scenario1" :
+            texts = couchdbService.getTextsFromView_1(each["db_name"],each["view_name"])
+        if scenario == "scenario2" :
+            texts = couchdbService.getTextsFromView_2(each["db_name"],each["view_name"])
         sentiment = nltk_analyze(texts)
         data[each["area"]] = sentiment  
     doc["_id"] = scenario 

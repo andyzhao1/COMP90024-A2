@@ -33,7 +33,16 @@ def create_doc(db, document):
     return doc
 
 # ServiceImpl
-def getTextsFromView(db_name,view_name):
+def getTextsFromView_1(db_name,view_name):
+    server = server_connection()
+    db = get_db(server,db_name)
+    view = db.view(view_name,reduce = False)
+    texts = []
+    for each in view:
+        texts.append(each.value)
+    return texts
+
+def getTextsFromView_2(db_name,view_name):
     server = server_connection()
     db = get_db(server,db_name)
     view = db.view(view_name,reduce = False)

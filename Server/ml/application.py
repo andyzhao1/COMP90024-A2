@@ -46,38 +46,53 @@ class StoppableThread(threading.Thread):
 '''
 ### Name: semantic analyze for scenario 1
 ### API: '/scenario/1/analyzeSemantic'
-### Description: ''
+### Description: 'Get tweets for scenario 1, return the semantic analyze result in scenario_analyze database'
 '''
 @app.route('/scenario/1/analyzeSemantic', methods = ['POST'])
 def s1_analyzeSemantic():
     if request.json:
         abort(400)
-    result = semanticAnalysis.scenario_analyze(scenario="scenario1")
-    return jsonify( result ), 201
+    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=("scenario1"))
+    try :
+        t.start()
+        message = "Scenario 1 update"
+    except Exception as e:
+        message = e
+    return jsonify( message ), 201
 
 '''
 ### Name: semantic analyze for scenario 2
 ### API: '/scenario/2/analyzeSemantic'
-### Description: ''
+### Description: 'Get tweets for scenario 2, return the semantic analyze result in scenario_analyze database'
 '''
 @app.route('/scenario/2/analyzeSemantic', methods = ['POST'])
 def s2_analyzeSemantic():
     if request.json:
         abort(400)
-    result = semanticAnalysis.scenario_analyze(scenario="scenario2")
-    return jsonify( result ), 201
+    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=("scenario2"))
+    try :
+        t.start()
+        message = "Scenario 2 update"
+    except Exception as e:
+        message = e
+    return jsonify( message ), 201
 
 '''
 ### Name: semantic analyze for scenario 4
 ### API: '/scenario/4/analyzeSemantic'
-### Description: ''
+### Description: 'Get tweets for scenario 4, tag tweets with positive or negative or neutral'
 '''
 @app.route('/scenario/4/analyzeSemantic', methods = ['POST'])
 def s4_analyzeSemantic():
     if request.json:
         abort(400)
-    result = semanticAnalysis.scenario_4_analyze()
-    return jsonify( result ), 201
+    t = threading.Thread(target=semanticAnalysis.scenario_4_analyze, args=())
+    try :
+        t.start()
+        message = "Scenario 4 update"
+    except Exception as e:
+        message = e
+    return jsonify( message ), 201
 
 if __name__ == '__main__':
     app.run(port=5002,debug=True,threaded=True,host='0.0.0.0')
