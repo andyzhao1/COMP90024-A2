@@ -9,8 +9,8 @@ Team Members:
 
 ## Video links
 ### Ansible
-Part 1: https://youtu.be/_D38VT2fbOc
-Part 2: https://youtu.be/Xdya6DEyqS0
+* Part 1: https://youtu.be/_D38VT2fbOc
+* Part 2: https://youtu.be/Xdya6DEyqS0
 
 ### Frontend presentation
 
@@ -43,6 +43,10 @@ Part 2: https://youtu.be/Xdya6DEyqS0
 
 ### Instances information
 Instance1: 172.26.132.195
+ 
 Instance2: 172.26.129.104
+ 
 Instance3: 172.26.130.101
+ 
 Instance3: 172.26.129.79
+ 
