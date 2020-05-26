@@ -1,0 +1,9 @@
+---
+webapp_image: emostudio/webapp
+
+dataserver_image: emostudio/server
+
+harvester_image: emostudio/harvester
+
+ml_image: emostudio/machine_learning
+

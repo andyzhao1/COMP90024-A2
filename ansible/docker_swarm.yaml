@@ -9,43 +9,45 @@
     - {role: docker-swarm, swarm_node: 'node', swarm_master: '172.26.132.195'}
 
 - hosts: swarmMaster
+  vars_files:
+    - host_vars/docker_images.yaml
   tasks:
-      - name: Deploy web app
-        tags: 'web_app'
-        docker_swarm_service:
-          name: webapp
-          image: emostudio/webapp
-          publish:
-            - published_port: 8080
-              target_port: 8080
-          replicas: 3
+    - name: Deploy front end web app
+      tags: 'web_app'
+      docker_swarm_service:
+        name: webapp
+        image: "{{ webapp_image }}"
+        publish:
+          - published_port: 8080
+            target_port: 8080
+        replicas: 3
 
-      - name: Deploy couchdb api
-        tags: 'couchdb_api'
-        docker_swarm_service:
-          name: couchdb_api
-          image: emostudio/server
-          publish:
-            - published_port: 5000
-              target_port: 5000
-          replicas: 1
+    - name: Deploy data server to fetch data from couchdb
+      tags: 'data_serve'
+      docker_swarm_service:
+        name: couchdb_api
+        image: "{{ dataserver_image }}"
+        publish:
+          - published_port: 5000
+            target_port: 5000
+        replicas: 1
 
-      - name: Deploy tweets harvester
-        tags: 'harvester'
-        docker_swarm_service:
-          name: harvester
-          image: emostudio/harvester
-          publish:
-            - published_port: 5001
-              target_port: 5001
-          replicas: 1
+    - name: Deploy tweets harvester
+      tags: 'harvester'
+      docker_swarm_service:
+        name: harvester
+        image: "{{ harvester_image }}"
+        publish:
+          - published_port: 5001
+            target_port: 5001
+        replicas: 1
 
-      - name: Deploy machine learning server
-        tags: 'ml_server'
-        docker_swarm_service:
-          name: machine_learning
-          image: emostudio/machine_learning
-          publish:
-            - published_port: 5002
-              target_port: 5002
-          replicas: 1
+    - name: Deploy machine learning server
+      tags: 'ml_server'
+      docker_swarm_service:
+        name: machine_learning
+        image: "{{ ml_image }}"
+        publish:
+          - published_port: 5002
+            target_port: 5002
+        replicas: 1
