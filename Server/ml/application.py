@@ -52,7 +52,8 @@ class StoppableThread(threading.Thread):
 def s1_analyzeSemantic():
     if request.json:
         abort(400)
-    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=("scenario1"))
+    arg1 = "scenario1"
+    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=(arg1,))
     try :
         t.start()
         message = "Scenario 1 update"
@@ -69,7 +70,8 @@ def s1_analyzeSemantic():
 def s2_analyzeSemantic():
     if request.json:
         abort(400)
-    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=("scenario2"))
+    arg1 = "scenario2"
+    t = threading.Thread(target=semanticAnalysis.scenario_analyze, args=(arg1,))
     try :
         t.start()
         message = "Scenario 2 update"

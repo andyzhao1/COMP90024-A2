@@ -1,7 +1,7 @@
 import time
 import couchdbService
 import nltk
-nltk.download('vader_lexicon')
+# nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def nltk_analyze(texts):
