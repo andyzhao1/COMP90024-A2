@@ -16,7 +16,8 @@ Team Members:
 ### PowerPoint
 
 ## System Structure
-![alt text](https://github.com/andyzhao1/COMP90024-A2/tree/master/img/system_structure.png "System Structure")
+![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/system_structure.png "System Structure")
+
 ### Frontend (https://youtu.be/_D38VT2fbOc)
 <p>For visualizing analyzed data, we choose Vue which is a components-based development framework to build our web application. Four main packages were used here, the first one is Vue-ElementUI which offers a set of created components and UIs. We have used it to construct the  main structure and style of web pages like Navigation Side Bar and Message Box. The second is Vue-Echart which can be used to draw charts like histogram, pie chart and line chart. The third one is Vue-GoogleMaps, we used it to show data distribution on specific areas. For example, we distribute areas as seven levels based on the num of negative job related tweets and label these areas by seven different colors. The last one is Axios which can be used to communicate with backend servers by HTTP Requests.</p>
 
@@ -29,7 +30,7 @@ Team Members:
 #### Harvester server
 <p>We have built APIs for stream tweets and search tweets. The user  can simply call these two APIs to add new thread for harvest tweets.</p>
 
-![alt text](https://github.com/andyzhao1/COMP90024-A2/tree/master/img/system_structure.png "System Structure")
+![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/harvester_server.png "Harvester Server")
 
 #### Semantic Analysis Server
 <p>In this server, we use the SentimentIntensityAnalyzer model under the NLTK package of python. It is a pre-trained natural language processing model which can divide emotions expressed in words into negative or positive. This server can be automatically triggered per hour, and then it will pull tweets from created views on couchdb and label these tweets as negative or positive. Finally it will count the num of negative tweets and positive tweets and  the statistical results will be stored or updated into couchdb. This server is listening on port 5001.</p>
