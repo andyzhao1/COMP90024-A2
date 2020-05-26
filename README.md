@@ -6,14 +6,15 @@ Team Members:
 * [Sejin Kim - 1025560](https://github.com/s-kim333)
 * [Rajeong Moon - 972583](https://github.com/rajeong)
 
+### PowerPoint
+https://docs.google.com/presentation/d/141WuuAyn-erbEmaW-RVfLsY1yr2QnDdpmTDvFowC9Ms/edit?usp=sharing
 
 ## Video links
 ### Ansible 
 * Part 1: https://youtu.be/_D38VT2fbOc
 * Part 2: https://youtu.be/Xdya6DEyqS0
-### Frontend presentation
 
-### PowerPoint
+### Tweet harvesting and CouchDB utilization
 
 ## System Structure
 ![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/system_structure.jpg "System Structure")
