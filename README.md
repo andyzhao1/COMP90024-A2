@@ -38,7 +38,7 @@ Team Members:
 
 ### Deployment Operation 
 1. Ansible creates 4 instances
-2. Docker runs 3 CouchDB as a cluster in instances 1-3
+2. Ansible deploys 3 CouchDB in instances 1-3 as a cluster
 3. Ansible controls Docker-compose with services on each instances 
 
 ### Instances information
