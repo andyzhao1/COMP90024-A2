@@ -9,17 +9,18 @@ Team Members:
 ### PowerPoint
 https://docs.google.com/presentation/d/141WuuAyn-erbEmaW-RVfLsY1yr2QnDdpmTDvFowC9Ms/edit?usp=sharing
 
-## Video links
-### Ansible 
+## Demonstration Video links
+### Ansible
 * Part 1: https://youtu.be/_D38VT2fbOc
 * Part 2: https://youtu.be/Xdya6DEyqS0
 
 ### Tweet harvesting and CouchDB utilization
+* Part 1: https://www.youtube.com/watch?v=baOaeuTgMh0
 
 ## System Structure
 ![](https://github.com/andyzhao1/COMP90024-A2/blob/master/img/system_structure.jpg "System Structure")
 
-### Frontend (https://youtu.be/_D38VT2fbOc)
+### Frontend (http://172.26.132.195:8080/)
 <p>For visualizing analyzed data, we choose Vue which is a components-based development framework to build our web application. Four main packages were used here, the first one is Vue-ElementUI which offers a set of created components and UIs. We have used it to construct the  main structure and style of web pages like Navigation Side Bar and Message Box. The second is Vue-Echart which can be used to draw charts like histogram, pie chart and line chart. The third one is Vue-GoogleMaps, we used it to show data distribution on specific areas. For example, we distribute areas as seven levels based on the num of negative job related tweets and label these areas by seven different colors. The last one is Axios which can be used to communicate with backend servers by HTTP Requests.</p>
 
 ### Backend
@@ -43,17 +44,17 @@ https://docs.google.com/presentation/d/141WuuAyn-erbEmaW-RVfLsY1yr2QnDdpmTDvFowC
 <p>If we want to scale up the container of  Harvester Server and Semantic Analysis Server to raise system efficiency, we have to make sure each container operates different tasks. So, we have built a trigger that will automatically allocate tasks by sending requests to the Harvester Server cluster and Semantic Analysis Server cluster. After the requests arrive the docker swarm load balance of both servers, the load balancers can evenly distribute tasks into each container. The trigger will allocate new tasks for collecting latest tweets to Harvester Server per day. And it will assign tasks of analyzing tweets for scenarios to Semantic Analysis Server per hour. The trigger also provides APIs for webapp to manually edit the tasks lists. Generally, users can add new tasks into the task list and also delete tasks from the task list through the web app.</p>
 
 ### Database
-CouchDB (MapReduce)
+<p>Four couchdb database in instance 1~4 are combined as a cluster</p>
 
-## Specfic Code Description
+## Specfic Description
 ### Twitter harvester
 1. Twitter API
 2. tweepy streaming
-3. Trigger periodically to collect data (once a day)
+3. Trigger periodically to collect data (per day)
 
 ### Machine learning algorithm
 1. Model: SentimentIntensityAnalyzer
-2. Trigger periodically to analyze data (one an hour)
+2. Trigger periodically to analyze data (per hour)
 
 ### Deployment Operation 
 1. Ansible creates 4 instances
